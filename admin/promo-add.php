@@ -56,7 +56,7 @@
                         <i class="fas fa-stream"></i>
                       </span>
                     </div>
-                    <input type="text" name="kode_promo" class="form-control" placeholder="Kode Promo" required>
+                    <input type="text" name="kode_promo" class="form-control" placeholder="Kode Promo">
                   </div>
                 </div>
 

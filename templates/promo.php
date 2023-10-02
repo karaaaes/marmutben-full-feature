@@ -49,7 +49,13 @@
                             <h3><?php echo $promo['nama_promo']; ?></h3>
                             <span><?php echo $promo['created_at']; ?></span>
                             <p><?php echo $promo['caption_promo']; ?></p>
+                            <?php 
+                                if($promo['kode_promo'] != '') : 
+                            ?>
                             <span>Kode Voucher : <?php echo $promo['kode_promo']; ?></span>
+                            <?php 
+                                endif
+                            ?>
                         </div>
                     </div>
                 </div>

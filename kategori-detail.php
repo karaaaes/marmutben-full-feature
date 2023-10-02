@@ -10,6 +10,8 @@
    }
 
    $categoriesId = $_GET['categories'];
+   $dataCategories = checkCategories($categoriesId);
+   $categoriesName = $dataCategories[0]['categories'];
    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
    $itemsPerPage = 6; // Jumlah item per halaman
 
@@ -85,7 +87,7 @@
          <div class="row">
             <div class="col-md-12">
                <div class="titlepage">
-                  <h2>Marmut Anakan</h2>
+                  <h2>Marmut <?= $categoriesName; ?></h2>
                </div>
             </div>
          </div>

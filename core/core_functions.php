@@ -175,7 +175,7 @@ function getWilayahKecil($wilayah){
 
 function checkCategories($categoriesId){
     global $conn;
-    $sql = "SELECT id FROM t_marmutben_categories WHERE id = $categoriesId";
+    $sql = "SELECT id, categories FROM t_marmutben_categories WHERE id = $categoriesId";
     $result = $conn->query($sql);
     $marmutArray = array();
     if ($result->num_rows > 0) {

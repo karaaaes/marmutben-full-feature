@@ -1,3 +1,10 @@
+<meta name="keywords" content="marmut murah, jual marmut 2023, marmut terdekat, marmutben, marmut 2023, marmut">
+<meta name="description" content="Jual beli marmut murah dan terpercaya - Bekasi">
+<meta content="Jual marmut murah 2023 terlengkap dan terpercaya" itemprop="headline" />
+<meta name="author" content="Marmutben">
+<meta name="robots" content="index, follow">
+<meta name="abstract"
+      content="Selamat datang di marmutben.rakaeshardiansyah.my.id - Destinasi Terbaik untuk Marmut Impian Anda! Temukan koleksi eksklusif kami dari marmut yang lucu dan menggemaskan. Kami menyediakan marmut dengan beragam jenis, warna, dan karakter unik. Jelajahi sekarang dan bawa pulang teman berbulu Anda hari ini!">
 <?php 
 include('templates/header.php');
 include('core/core_functions.php');

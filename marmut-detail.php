@@ -29,6 +29,11 @@
         margin-top: 80px;
       }
    }
+
+   .news {
+      background-color: #fff;
+      padding-top: 10px !important;
+   }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -53,7 +58,7 @@
    });
 </script>
 <section class="marmut-detail">
-<div id="project" class="project">
+<div id="project" class="project" style="padding: 50px 0 10px 0;">
    <!-- Detail Beli Section -->
    <div class="container" id="anakanSection">
       <div class="row">

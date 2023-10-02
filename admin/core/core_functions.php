@@ -11,7 +11,7 @@ if(isset($_POST['deleteMarmut'])){
 
         // log write
         $logText = "Marmut ".$jenisMarmut[0]['jenis_marmut']." has been deleted from list.";
-        $writeLog = logRecord("DELETE", $idMarmut, $logText);
+        $writeLog = logRecord("DELETE", "MARMUT", $idMarmut, $logText);
 
         // Menghasilkan URL dengan protokol HTTP atau HTTPS secara dinamis
         $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
@@ -49,7 +49,7 @@ if(isset($_POST['editMarmut'])){
     if ($result->num_rows > 0) {
         // log write
         $logText = "Marmut $jenisMarmut is duplicate.";
-        $writeLog = logRecord("UPDATE", $idMarmut, $logText);
+        $writeLog = logRecord("UPDATE", "MARMUT", $idMarmut, $logText);
         echo '<script>alert("Data duplikat!");</script>';
         echo '<script>window.location.href = "../marmut-edit.php";</script>';
         exit;
@@ -84,7 +84,15 @@ if(isset($_POST['editMarmut'])){
 
         $sqlTambahan = ", image_marmut = '$filePath'";
     }
-    
+
+    // Old Data
+    $sqlOldData = "SELECT a.id, a.jenis_marmut as `Jenis Marmut`, a.image_marmut as `Image Marmut`, b.categories `Kategori Marmut`, a.description as `Description`, a.harga as `Harga` 
+    FROM t_marmutben_products as a 
+    LEFT JOIN t_marmutben_categories as b on a.categories_marmut = b.id  
+    WHERE a.id = $idMarmut";
+    $resultOldData = mysqli_query($conn, $sqlOldData);
+    $rowOldData = mysqli_fetch_assoc($resultOldData);
+
     $sqlUpdate = "
         UPDATE t_marmutben_products SET `jenis_marmut`='$jenisMarmut', `categories_marmut` = '$categoriesMarmut', 
         `description` = '$description', `harga` = '$hargaMarmut' $sqlTambahan 
@@ -92,9 +100,33 @@ if(isset($_POST['editMarmut'])){
     ";
     $result = $conn->query($sqlUpdate);
 
-    // log write
-    $logText = "Marmut $jenisMarmut has been updated from list.";
-    $writeLog = logRecord("UPDATE", $idMarmut, $logText);
+    // New Data After Update
+    $sqlNewData = "SELECT a.id, a.jenis_marmut as `Jenis Marmut`, a.image_marmut as `Image Marmut`, b.categories `Kategori Marmut`, a.description as `Description`, a.harga as `Harga` 
+    FROM t_marmutben_products as a 
+    LEFT JOIN t_marmutben_categories as b on a.categories_marmut = b.id  
+    WHERE a.id = $idMarmut";
+    $resultNewData = mysqli_query($conn, $sqlNewData);
+    $rowNewData = mysqli_fetch_assoc($resultNewData);
+
+    // Bandingkan nilai-nilai field satu per satu
+    $changedFields = array();
+    foreach ($rowOldData as $field => $valueOldData) {
+        $valueUpdated = $rowNewData[$field];
+        if ($valueOldData != $valueUpdated) {
+            $changedFields[$field] = $valueUpdated;
+        }
+    }
+
+    // Log jika ada field yang diupdate
+    if (!empty($changedFields)) {
+        foreach ($changedFields as $field => $valueUpdated) {
+            $valueOldData = $rowOldData[$field];
+            $logText = "Updated field: $field from <strong>$valueOldData</strong> to <strong>$valueUpdated</strong> ";
+            // Log write
+            $writeLog = logRecord("UPDATE", "MARMUT", $idMarmut, $logText);
+        }
+    }
+
 
     echo '<script>alert("Data berhasil di Update !");</script>';
     // Redirect to the page after update
@@ -131,22 +163,22 @@ if(isset($_POST['addMarmut'])){
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $logText = "Marmut <b>".$jenisMarmut."</b> is duplicate!.";
-        $writeLog = logRecord("INSERT", $jenisMarmut, $logText);
+        $writeLog = logRecord("INSERT", "MARMUT", $jenisMarmut, $logText);
         echo '<script>alert("Data duplikat!");</script>';
         echo '<script>window.location.href = "../marmut-list.php";</script>';
         exit;
     }
     // End
 
-    $sqlUpdate = "
+    $sqlInsert = "
         INSERT INTO t_marmutben_products (jenis_marmut, image_marmut, categories_marmut, description, harga, date_created) 
         VALUES ('$jenisMarmut','$filePath','$categoriesMarmut','$description','$hargaMarmut','$dateCreated')
     ";
-    $result = $conn->query($sqlUpdate);
-    if ($conn->query($sqlUpdate) === TRUE) {
-        $insertedId = $conn->insert_id;
+    $resultInsert = $conn->query($sqlInsert);
+    if ($resultInsert === TRUE) {
+        $insertedId = $conn->insert_id; // Mengambil ID hasil query INSERT
         $logText = "$jenisMarmut has been added to list.";
-        $writeLog = logRecord("INSERT", $insertedId, $logText);
+        $writeLog = logRecord("INSERT", "MARMUT", $insertedId, $logText);
         echo '<script>alert("Data berhasil di Insert !");</script>';
         echo '<script>window.location.href = "../marmut-list.php";</script>';
         exit;
@@ -182,7 +214,7 @@ if(isset($_POST['add_config'])){
 
         if($isSucces == 1){
             $logText = "Email Notifications is now set to $emailNotifications";
-            $writeLog = logRecord("UPDATE", $emailNotifications, $logText);
+            $writeLog = logRecord("UPDATE", "SETTINGS", $emailNotifications, $logText);
             echo '<script>alert("Data berhasil di Update");</script>';
             echo '<script>window.location.href = "' . $url . '";</script>';
             exit;
@@ -205,7 +237,7 @@ if(isset($_POST['add_config'])){
 
     if($isSucces == 1){
         $logText = "Email Notifications is set to $emailNotifications";
-        $writeLog = logRecord("INSERT", $emailNotifications, $logText);
+        $writeLog = logRecord("INSERT", "SETTINGS", $emailNotifications, $logText);
 
         echo '<script>alert("Data berhasil di Input");</script>';
         echo '<script>window.location.href = "' . $url . '";</script>';
@@ -214,6 +246,29 @@ if(isset($_POST['add_config'])){
 }
 // End Settings Tab Management
 
+// Log
+if(isset($_POST['submitFilter'])){
+    $firstDate = $_POST['first_date']." 00:00:00";
+    $lastDate = $_POST['last_date']." 23:59:59";
+
+    // Menghasilkan URL dengan protokol HTTP atau HTTPS secara dinamis
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+    if($protocol == 'http://'){
+        if($firstDate == " 00:00:00" || $lastDate == " 23:59:59"){
+            $url = $protocol . $_SERVER['HTTP_HOST'] . '/marmutben/admin/log.php';
+        }else{
+            $url = $protocol . $_SERVER['HTTP_HOST'] . '/marmutben/admin/log.php?first='.$firstDate.'&last='.$lastDate;
+        }    
+    }else{
+        if($firstDate == " 00:00:00" || $lastDate == " 23:59:59"){
+            $url = $protocol . $_SERVER['HTTP_HOST'] . '/admin/log.php';
+        }else{
+            $url = $protocol . $_SERVER['HTTP_HOST'] . '/admin/log.php?first='.$firstDate.'%00:00:00&last='.$lastDate.'%23:59:59';
+        } 
+    }
+
+    echo '<script>window.location.href = "' . $url . '";</script>';
+}
 
 // --Best Sellers Tab Management--
 if(isset($_POST['submitBestSeller'])){
@@ -224,7 +279,7 @@ if(isset($_POST['submitBestSeller'])){
     $deleteAction = updateBestSeller($widgetId, $idMarmut, $jumlahTerjual);
     if($deleteAction == 'success'){
         $logText = "Best Seller is set to $idMarmut with $jumlahTerjual sales";
-        $writeLog = logRecord("UPDATE", $idMarmut, $logText);
+        $writeLog = logRecord("UPDATE", "BEST SELLER", $idMarmut, $logText);
         echo '<script>alert("Widget Berhasil di Update");</script>';
   
         // Menghasilkan URL dengan protokol HTTP atau HTTPS secara dinamis
@@ -249,7 +304,7 @@ if(isset($_POST['deletePromo'])){
     $deleteAction = deletePromo($idPromo);
     if($deleteAction == 'success'){
         $logText = "Promo <b>".$namePromo[0]['nama_promo']."</b> has been deleted";
-        $writeLog = logRecord("DELETE", $idPromo, $logText);
+        $writeLog = logRecord("DELETE", "PROMO", $idPromo, $logText);
 
         echo '<script>alert("Promo berhasil dihapus");</script>';
   
@@ -297,7 +352,7 @@ if(isset($_POST['addPromo'])){
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $logText = "Promo <b>".$namaPromo."</b> is duplicate!.";
-        $writeLog = logRecord("INSERT", $namaPromo, $logText);
+        $writeLog = logRecord("INSERT", "PROMO", $namaPromo, $logText);
         echo '<script>alert("Data duplikat!");</script>';
         echo '<script>window.location.href = "../promo-add.php";</script>';
         exit;
@@ -313,7 +368,7 @@ if(isset($_POST['addPromo'])){
 
     $insertedId = $conn->insert_id;
     $logText = "Promo <b>".$namaPromo."</b> has been added.";
-    $writeLog = logRecord("INSERT", $insertedId, $logText);
+    $writeLog = logRecord("INSERT", "PROMO", $insertedId, $logText);
 
     echo '<script>alert("Data berhasil di Insert !");</script>';
     echo '<script>window.location.href = "../promo.php";</script>';
@@ -342,7 +397,7 @@ if(isset($_POST['editPromo'])){
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $logText = "Promo <b>".$namaPromo."</b> is duplicate !";
-        $writeLog = logRecord("INSERT", $idPromo, $logText);
+        $writeLog = logRecord("INSERT", "PROMO", $idPromo, $logText);
         echo '<script>alert("Data duplikat!");</script>';
         echo '<script>window.location.href = "../marmut-edit.php";</script>';
         exit;
@@ -378,17 +433,53 @@ if(isset($_POST['editPromo'])){
         $sqlTambahan = ", image_promo = '$filePath'";
     }
     
-    $sqlUpdate = "
-        UPDATE t_marmutben_promo SET `nama_promo`='$namaPromo', `kode_promo` = '$kodePromo', 
-        `jumlah_promo` = '$jumlahPromo', `caption_promo` = '$description', `expired_at` = '$expiredAt' $sqlTambahan 
-        WHERE id = '$idPromo'
-    ";
-    $result = $conn->query($sqlUpdate);
-    $logText = "Promo <b>".$namaPromo."</b> has been updated.";
-    $writeLog = logRecord("UPDATE", $idPromo, $logText);
+        // Old Data
+        $sqlOldData = "
+            SELECT id, nama_promo as `Nama Promo`, image_promo as `Image Promo`, kode_promo `Kode Promo`, 
+            jumlah_promo as `Jumlah Promo`, caption_promo as `Caption Promo`, expired_at as `Expired At` 
+            FROM t_marmutben_promo 
+            WHERE id = $idPromo
+        ";
+        $resultOldData = mysqli_query($conn, $sqlOldData);
+        $rowOldData = mysqli_fetch_assoc($resultOldData);
+    
+        $sqlUpdate = "
+            UPDATE t_marmutben_promo SET `nama_promo`='$namaPromo', `kode_promo` = '$kodePromo', 
+            `jumlah_promo` = '$jumlahPromo', `caption_promo` = '$description', `expired_at` = '$expiredAt' $sqlTambahan 
+            WHERE id = '$idPromo'
+        ";
+        $result = $conn->query($sqlUpdate);
+    
+        // New Data After Update
+        $sqlNewData = "
+            SELECT id, nama_promo as `Nama Promo`, image_promo as `Image Promo`, kode_promo `Kode Promo`, 
+            jumlah_promo as `Jumlah Promo`, caption_promo as `Caption Promo`, expired_at as `Expired At` 
+            FROM t_marmutben_promo 
+            WHERE id = $idPromo
+        ";
+        $resultNewData = mysqli_query($conn, $sqlNewData);
+        $rowNewData = mysqli_fetch_assoc($resultNewData);
+    
+        // Bandingkan nilai-nilai field satu per satu
+        $changedFields = array();
+        foreach ($rowOldData as $field => $valueOldData) {
+            $valueUpdated = $rowNewData[$field];
+            if ($valueOldData != $valueUpdated) {
+                $changedFields[$field] = $valueUpdated;
+            }
+        }
+    
+        // Log jika ada field yang diupdate
+        if (!empty($changedFields)) {
+            foreach ($changedFields as $field => $valueUpdated) {
+                $valueOldData = $rowOldData[$field];
+                $logText = "Updated field: $field from <strong>$valueOldData</strong> to <strong>$valueUpdated</strong> ";
+                // Log write
+                $writeLog = logRecord("UPDATE", "PROMO", $idPromo, $logText);
+            }
+        }
 
     echo '<script>alert("Data berhasil di Update !");</script>';
-    // Redirect to the page after update
     echo '<script>window.location.href = "../promo.php";</script>';
     exit;
 }
@@ -402,7 +493,7 @@ if(isset($_POST['deletePaket'])){
     $deleteAction = deletePaket($idPaket);
     if($deleteAction == 'success'){
         $logText = "Paket <b>".$jenisPaket[0]['jenis']."</b> has been deleted.";
-        $writeLog = logRecord("INSERT", $idPaket, $logText);
+        $writeLog = logRecord("INSERT", "PROMO", $idPaket, $logText);
         echo '<script>alert("Paket berhasil dihapus");</script>';
   
       // Menghasilkan URL dengan protokol HTTP atau HTTPS secara dinamis
@@ -424,7 +515,7 @@ if(isset($_POST['deleteAllPaket'])){
     $result = $conn->query($sqlUpdate);
 
     $logText = "All paket has been deleted.";
-    $writeLog = logRecord("DELETE", "Delete All", $logText);
+    $writeLog = logRecord("DELETE", "PAKET", "Delete All", $logText);
 
 
     echo '<script>alert("Data berhasil di Delete !");</script>';
@@ -441,7 +532,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['importPaket'])) {
 
         if (importCSVPaketDataToDatabase($fileInputName, $conn, $tableName)) {
             $logText = "Import data paket success.";
-            $writeLog = logRecord("INSERT", "Import All", $logText);
+            $writeLog = logRecord("INSERT", "PAKET", "Import All", $logText);
             echo '<script>alert("Data berhasil diimpor ke dalam database.");</script>';
             echo '<script>window.location.href = "../paket.php";</script>';
         } else {
@@ -493,7 +584,7 @@ if(isset($_POST['deleteAllOngkir'])){
     ";
     $result = $conn->query($sqlUpdate);
     $logText = "All ongkir has been deleted.";
-    $writeLog = logRecord("INSERT", "Delete All", $logText);
+    $writeLog = logRecord("INSERT", "ONGKIR", "Delete All", $logText);
     echo '<script>alert("Data berhasil di Delete !");</script>';
     echo '<script>window.location.href = "../ongkir.php";</script>';
     exit;
@@ -508,7 +599,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['importOngkir'])) {
 
         if (importCSVDataToDatabase($fileInputName, $conn, $tableName)) {
             $logText = "Import data ongkir success.";
-            $writeLog = logRecord("INSERT", "Import All", $logText);
+            $writeLog = logRecord("INSERT", "ONGKIR", "Import All", $logText);
             echo '<script>alert("Data berhasil diimpor ke dalam database.");</script>';
             echo '<script>window.location.href = "../ongkir.php";</script>';
         } else {
@@ -839,11 +930,11 @@ function getAllLog(){
     return $marmutArray;
 }
 
-function logRecord($type, $item, $log){
+function logRecord($type, $menu, $item, $log){
     global $conn;
     $sql = "
-        INSERT INTO `t_marmutben_log` (type, item, log)
-        VALUES ('$type', '$item', '$log')
+        INSERT INTO `t_marmutben_log` (type, menu, item, log)
+        VALUES ('$type', '$menu', '$item', '$log')
     ";
     $conn->query($sql);
     return "success";
@@ -856,7 +947,7 @@ function countMarmutCategories(){
         FROM t_marmutben_products 
         WHERE categories_marmut IN (1, 2, 3, 4, 5, 6) 
         GROUP BY categories_marmut 
-        ORDER BY categories_marmut;
+        ORDER BY categories_marmut
     ";
     $result = $conn->query($sql);
     $marmutArray = array();
@@ -884,12 +975,22 @@ function getDataHit(){
     return $marmutArray;
 }
 
-function getLog(){
+function getLog($firstDate = "", $lastDate = ""){
     global $conn;
-    $sql = "
-        SELECT * FROM t_marmutben_log 
-        ORDER BY id DESC
-    ";
+
+    if($firstDate != "" && $lastDate != ""){
+        $sql = "
+            SELECT * FROM t_marmutben_log 
+            WHERE timestamp BETWEEN '$firstDate' AND '$lastDate'
+            ORDER BY id DESC
+        ";
+    }else{
+        $sql = "
+            SELECT * FROM t_marmutben_log 
+            ORDER BY id DESC
+        ";
+    }
+    
     $result = $conn->query($sql);
     $marmutArray = array();
     if ($result->num_rows > 0) {

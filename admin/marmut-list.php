@@ -42,6 +42,7 @@
                     <th>Kategori</th>
                     <th>Image Marmut</th>
                     <th>Harga</th>
+                    <th>Stok</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -62,6 +63,7 @@
                       <img src="<?= "../".$data['image_marmut']; ?>" height="100" width="200" alt="">
                     </td>
                     <td><?= "Rp. ".$harga_terformat; ?></td>
+                    <td>5</td>
                     <td>
                       <a href="marmut-edit.php?id=<?= $data['id'];?>" class="btn btn-block bg-gradient-warning btn-xs">Edit</a>
                       <form action="core/core_functions.php" method="post" enctype="multipart/form-data">
@@ -81,6 +83,7 @@
                     <th>Kategori</th>
                     <th>Image Marmut</th>
                     <th>Harga</th>
+                    <th>Stok</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>

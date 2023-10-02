@@ -1,6 +1,26 @@
 <?php
   include('template/sidebar.php');
   include_once('core/core_functions.php');
+  
+  $firstDate = "";
+  $lastDate = "";
+  $firstDateValue = "";
+  $lastDateValue = "";
+
+  if(isset($_GET['first']) && isset($_GET['last'])){
+    $firstDate = str_replace("%"," ", $_GET['first']);
+    $lastDate = str_replace("%"," ", $_GET['last']); 
+
+    $explodeFirstDate = explode("%", $_GET['first']);
+    $firstDateValue = $explodeFirstDate[0];
+    $firstDateValue = date("Y-m-d", strtotime($firstDateValue));
+
+    $exportLastDate = explode("%", $_GET['last']);
+    $lastDateValue = $exportLastDate[0];
+    $lastDateValue = date("Y-m-d", strtotime($lastDateValue));
+  }
+
+  $dataLog = getLog($firstDate, $lastDate);
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -36,11 +56,37 @@
             <!-- /.card-header -->
             <!-- form start -->
             <div class="card-body">
+              <div class="row">
+                <form class="mb-3" action="core/core_functions.php" method="POST" enctype="multipart/form-data" style="width: 100%;">
+                  <div class="range-date" style="display:flex !important;">
+                    <div class="col-md-3">
+                      <div class="form-group" style="margin-bottom: 0;">
+                        <label for="exampleInputEmail1">First Date</label>
+                        <div class="input-group">
+                          <input type="date" name="first_date" class="form-control" placeholder="Date" value="<?= $firstDateValue ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group" style="margin-bottom: 0;">
+                        <label for="exampleInputEmail1">Last Date</label>
+                        <div class="input-group">
+                          <input type="date" name="last_date" class="form-control" placeholder="Date" value="<?= $lastDateValue ?>">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                        <button type="submit" name="submitFilter" class="btn btn-primary mt-2">Filter</button>
+                  </div>
+                </form>
+              </div>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>No</th>
                     <th>Type</th>
+                    <th>Menu</th>
                     <th>Item</th>
                     <th>Log</th>
                     <th>Timestamp</th>
@@ -48,7 +94,6 @@
                 </thead>
                 <tbody>
                   <?php 
-                      $dataLog = getLog();
                       $i = 0;
                       foreach($dataLog as $data) :
                         $i += 1;
@@ -56,6 +101,7 @@
                   <tr>
                     <td><?= $i; ?></td>
                     <td><?= $data['type']; ?></td>
+                    <td><?= $data['menu']; ?></td>
                     <td><?= $data['item']; ?></td>
                     <td><?= $data['log']; ?></td>
                     <td><?= $data['timestamp']; ?></td>
@@ -68,6 +114,7 @@
                   <tr>
                     <th>No</th>
                     <th>Type</th>
+                    <th>Menu</th>
                     <th>Item</th>
                     <th>Log</th>
                     <th>Timestamp</th>
