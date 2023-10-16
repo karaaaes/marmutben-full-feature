@@ -67,15 +67,8 @@ function getBaseUrl() {
                <div class="row d_flex">
                   <div class="col-md-4">
                      <ul class="conta_icon d_none1">
-                        <li><a href="#"><img src="images/email.png" alt="#" /> hxxnim18@gmail.com</a> </li>
+                        <li><a href="#"><img src="images/email-white.png" alt="#" /> hxxnim18@gmail.com</a> </li>
                      </ul>
-                  </div>
-                  <div class="col-md-4 ">
-                     <a class="logo header-title-text" href="<?php echo getBaseUrl(); ?>">
-                        <b>
-                           <h1>MARMUTBEN</h1>
-                        </b>
-                     </a>
                   </div>
                </div>
             </div>

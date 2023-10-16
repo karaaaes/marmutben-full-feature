@@ -81,7 +81,7 @@ h2 {
 }
 
 h3 {
-     font-size: 18px;
+     font-size: 16px;
 }
 
 h4 {
@@ -111,7 +111,7 @@ h4 a,
 h5 a,
 h6 a {
      color: #212121;
-     text-decoration: none!important;
+     text-decoration: none !important;
      opacity: 1
 }
 
@@ -156,7 +156,7 @@ img {
      height: auto;
 }
 
- :focus {
+:focus {
      outline: 0;
 }
 
@@ -260,13 +260,13 @@ button {
           width: 100%;
           background: #325c19;
      }
- }
+}
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
      .header-title-text {
-         color: white !important;
+          color: white !important;
      }
- }
+}
 
 .header_top {
      background-color: #ecf3fc;
@@ -376,7 +376,8 @@ ul.social_icon li a:hover {
 }
 
 .header_midil {
-     padding: 10px 0;
+     padding: 30px 0;
+     background-color: #1A1C20;
 }
 
 .logo {
@@ -389,12 +390,12 @@ ul.conta_icon li a i {
 }
 
 ul.conta_icon li a {
-     color: #202020;
+     color: white;
      font-size: 17px;
 }
 
 ul.conta_icon li a:hover {
-     color: #183661;
+     color: white;
      text-decoration: underline !important;
 }
 
@@ -430,7 +431,7 @@ ul.right_icon li img {
 /*--   navigation--*/
 
 .header_bottom {
-     background-color: #50723C;
+     background-color: #F4F4F4;
 }
 
 .navigation.navbar {
@@ -440,7 +441,7 @@ ul.right_icon li img {
 
 .navigation.navbar-dark .navbar-nav .nav-link {
      padding: 30px 24px;
-     color: #ffffff;
+     color: black;
      font-size: 17px;
      line-height: 20px;
      font-weight: 400;
@@ -449,14 +450,17 @@ ul.right_icon li img {
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
 .navigation.navbar-dark .navbar-nav .nav-link:hover {
-     background-color: #f2c119;
+     background-color: #F0A500;
+     color: black;
+     
 }
 
 .navigation.navbar-dark .navbar-nav .active>.nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
 .navigation.navbar-dark .navbar-nav .show>.nav-link {
-     background-color: #423E28;
+     background-color: #F0A500;
+     color: black;
 }
 
 .navbar-expand-md .navbar-nav {
@@ -498,17 +502,19 @@ ul.right_icon li img {
      padding: 50px 0px 0px 0px;
      background-size: cover;
      background-repeat: no-repeat;
-     min-height: 698px;
- }
- 
- @media (max-width: 768px) {
+     height: 545px;
+     width: 100% !important;
+}
+
+@media (max-width: 768px) {
      .banner_main {
           background: url(../images/banner-mobile.webp);
-         min-height: auto; /* Menghapus min-height di mode mobile */
-         padding: 40px 0px 0px 0px;
-         background-size: cover;
+          min-height: auto;
+          /* Menghapus min-height di mode mobile */
+          padding: 40px 0px 0px 0px;
+          background-size: cover;
      }
- }
+}
 
 .blodark {
      color: black;
@@ -519,18 +525,19 @@ ul.right_icon li img {
 
 .text-bg {
      text-align: left;
+     margin-top: 70px;
 }
 
 .ban_img {
-margin-right: -45px;
-position: absolute;
+     margin-right: -45px;
+     position: absolute;
 }
 
 .text-bg h1 {
      color: #f2c119;
      font-size: 116px;
      line-height: 120px;
-     padding-bottom: 50px;
+     /* padding-bottom: 50px; */
      font-weight: 400;
 }
 
@@ -542,18 +549,17 @@ position: absolute;
 }
 
 .text-bg .read_more {
+     margin-top: 35px;
      font-weight: 500;
-     background: #325c19;
-     color: #fff !important;
-     border-radius: 43px;
+     background: #1A1C20;
+     color: white !important;
      margin-right: 25px;
-     padding: 13px 0;
      max-width: 210px;
 }
 
 .text-bg .read_more:hover {
-     background: #fcc10e;
-     color: #000 !important;
+     background: #F4F4F4;
+     color: black !important;
 }
 
 .ban_img figure {
@@ -566,6 +572,14 @@ position: absolute;
 
 
 /** end banner section **/
+.titlepage h3{
+     font-size: 27px;
+     border-bottom: #F0A500 solid 5px;
+     line-height: 40px;
+     color: black;
+     font-weight: 600;
+     padding-bottom: 9px;
+}
 
 .titlepage h2 {
      font-size: 35px;
@@ -596,7 +610,6 @@ position: absolute;
      display: inline-block;
      transition: ease-in all 0.5s;
      font-weight: 500;
-     border-radius: 50px;
      text-transform: uppercase;
 }
 
@@ -616,11 +629,13 @@ position: absolute;
 }
 
 .bluedark_bg {
-     background: #183661;
+     background: #1A1C20;
+     /* border-bottom: 1px solid black; */
 }
 
 .yellow_bg {
-     background: #325c19;
+     background: #1A1C20;
+     /* border-bottom: 1px solid black; */
 }
 
 .six_box .six_probpx {
@@ -638,7 +653,7 @@ position: absolute;
 }
 
 .six_box .six_probpx span {
-     color: #fff;
+     color: white;
      font-size: 17px;
      line-height: 32px;
      text-transform: uppercase;
@@ -663,7 +678,7 @@ position: absolute;
 }
 
 .project .titlepage h2 {
-     margin-bottom: 40px;
+     /* margin-bottom: 40px; */
      padding-bottom: 10px;
      border-bottom: #f2c119 solid 5px;
 }
@@ -675,16 +690,20 @@ position: absolute;
      padding-top: 10px;
      color: #fff;
 }
+
 .product_main {
      display: flex;
-     flex-wrap: nowrap; /* Menggunakan nowrap agar tidak dilakukan wrapping */
+     flex-wrap: nowrap;
+     /* Menggunakan nowrap agar tidak dilakukan wrapping */
      justify-content: center;
-     align-items: flex-start; /* Menjaga item tetap di bagian atas */
-  }
+     align-items: flex-start;
+     /* Menjaga item tetap di bagian atas */
+}
+
 .project .project_box {
      text-align: center;
-    max-width: 17.3%;
-    margin: 0 15px 20px 15px;
+     max-width: 17.3%;
+     margin: 0 15px 20px 15px;
 }
 
 .dark_white_bg {
@@ -694,71 +713,80 @@ position: absolute;
      flex-wrap: wrap;
      align-items: center;
      justify-content: center;
-     
-     overflow: hidden; /* Tambahkan ini */
+
+     overflow: hidden;
+     /* Tambahkan ini */
 }
 
 .dark_white_bg img {
-     max-width: 100%; /* Pastikan gambar tidak melebihi kontainer */
- }
+     max-width: 100%;
+     /* Pastikan gambar tidak melebihi kontainer */
+}
 
- .marmut-card {
-     margin-top: 3rem; /* Default margin */
- }
- 
- .iklan-persegi {
+.marmut-card {
+     margin-top: 3rem;
+     /* Default margin */
+}
+
+.iklan-persegi {
      background-color: grey;
      padding: 20px;
      text-align: center;
      border: 1px solid #ccc;
      height: 0;
-     padding-bottom: 100%; /* Menggunakan padding-bottom sebagai persentase untuk menghasilkan bentuk persegi */
+     padding-bottom: 100%;
+     /* Menggunakan padding-bottom sebagai persentase untuk menghasilkan bentuk persegi */
      position: relative;
      overflow: hidden;
- }
+}
 
- .iklan-persegi::before {
+.iklan-persegi::before {
      content: "";
      display: block;
-     padding-top: 100%; /* Sama dengan padding-bottom */
- }
+     padding-top: 100%;
+     /* Sama dengan padding-bottom */
+}
 
 
- /* Media query untuk layar desktop dengan lebar minimal 992px */
- @media (min-width: 992px) {
+/* Media query untuk layar desktop dengan lebar minimal 992px */
+@media (min-width: 992px) {
      .marmut-card {
-         margin-top: 1rem; /* Margin pada layar desktop */
+          margin-top: 1rem;
+          /* Margin pada layar desktop */
      }
-     .marmut-row-2{
-          margin-top: 3rem; /* Margin pada layar desktop */
+
+     .marmut-row-2 {
+          margin-top: 3rem;
+          /* Margin pada layar desktop */
      }
- }
+}
 
 /* Untuk ukuran layar dengan lebar maksimum 768px (perangkat mobile) */
 @media (max-width: 768px) {
      .project_box {
-       max-width: 100%;
-       margin: 0 auto 20px;
+          max-width: 100%;
+          margin: 0 auto 20px;
      }
-   
+
      .dark_white_bg img {
-       max-width: 100%;
-       height: auto;
+          max-width: 100%;
+          height: auto;
      }
-   }
-   
-   /* Untuk ukuran layar dengan lebar lebih dari 768px (desktop) */
-   @media (min-width: 769px) {
+}
+
+/* Untuk ukuran layar dengan lebar lebih dari 768px (desktop) */
+@media (min-width: 769px) {
      .project_box {
-       max-width: 17.3%;
-       margin: 0 15px 20px 15px;
+          max-width: 17.3%;
+          margin: 0 15px 20px 15px;
      }
-   
+
      .dark_white_bg img {
-       max-width: 100%;
-       height: 250px; /* Sesuaikan tinggi gambar di desktop sesuai kebutuhan */
+          max-width: 100%;
+          height: 250px;
+          /* Sesuaikan tinggi gambar di desktop sesuai kebutuhan */
      }
-   }
+}
 
 
 
@@ -771,7 +799,7 @@ position: absolute;
 }
 
 .project .read_more {
-     margin-top: 50px !important;
+     margin-top: 20px !important;
      margin: 0 auto;
      display: block;
      text-transform: none;
@@ -825,44 +853,77 @@ position: absolute;
 
 .news_item {
      width: 100%;
-  }
-  
-  .news_img_best {
-     width: 100%;
-     max-width: 340px;
-     height: 240px;
+}
+
+.news_img_best {
+     /* width: 100%; */
+     width: 225px;
+     height: 200px;
      overflow: hidden;
-     margin: 0 auto; /* Center horizontally */
+     margin: 0 auto;
+     /* Center horizontally */
      display: flex;
      align-items: center;
      justify-content: center;
-  }
-  
-  .news_img_best img {
+}
+
+
+@media screen and (max-width: 768px) {
+     .news_img_best {
+          /* width: 100%; */
+          width: 160px;
+          height: 200px;
+          overflow: hidden;
+          margin: 0 auto;
+          /* Center horizontally */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+     }
+}
+
+.title-marmut {
+     font-size: 1rem;
+     text-align: left;
+     min-height: 16px;
+     font-weight: 450;
+     line-height: 1.5;
+     white-space: normal;
+     /* Izinkan pemecahan baris */
+     text-overflow: ellipsis;
+     overflow: hidden;
+     max-width: 100%;
+     margin-top: 10px;
+ }
+
+.news_img_best img {
      max-width: 100%;
      max-height: 100%;
      object-fit: contain;
-     width: auto; /* Remove this line if you want the image to maintain its aspect ratio */
-     height: auto; /* Remove this line if you want the image to maintain its aspect ratio */
-  }
-  
-  
+     width: auto;
+     /* Remove this line if you want the image to maintain its aspect ratio */
+     height: auto;
+     /* Remove this line if you want the image to maintain its aspect ratio */
+}
 
-  .news_img_detail {
+
+
+.news_img_detail {
      width: 500px;
      height: 340px;
      overflow: hidden;
-     margin-bottom: 10px; /* Sesuaikan margin jika perlu */
+     margin-bottom: 10px;
+     /* Sesuaikan margin jika perlu */
      display: flex;
      align-items: center;
      justify-content: center;
-  }
-  
-  .news_img_detail img {
+}
+
+.news_img_detail img {
      max-width: 100%;
      max-height: 100%;
      /* object-fit: contain; Mempertahankan aspek rasio dan mengisi bingkai jika memungkinkan */
-  }
+}
 
 .news_text h3 {
      color: #141414;
@@ -875,6 +936,28 @@ position: absolute;
      padding-bottom: 4px;
      color: #141414;
      font-size: 15px;
+}
+
+.price {
+     color: #141414;
+     font-size: 1.3rem;
+     text-align: left;
+     font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+     .price {
+          color: #141414;
+          font-size: 1.15rem;
+          text-align: left;
+          font-weight: 600;
+     }
+}
+
+.categories {
+     font-size: 0.75rem;
+     text-align: left;
+     color: var(--NN600, #6D7588);
 }
 
 .date_like {
@@ -890,7 +973,7 @@ position: absolute;
      font-size: 17px;
      line-height: 32px;
      font-weight: 400;
-     padding-top: 15px;
+     padding-top: 9px;
 }
 
 
@@ -1151,7 +1234,7 @@ position: absolute;
      width: 100%;
      padding-top: 52px;
      padding-bottom: 52px;
-      background: transparent;
+     background: transparent;
      color: #183661;
      font-size: 17px;
      font-weight: normal;
@@ -1182,4 +1265,3 @@ position: absolute;
 
 
 /** end contact section **/
-
