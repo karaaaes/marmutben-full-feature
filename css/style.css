@@ -742,7 +742,7 @@ ul.right_icon li img {
           padding-right: 10px;
      }
 
-     .news_text_marmut_detail{
+     .news_text_marmut_detail {
           padding-left: 0px;
           padding-right: 0px;
      }
@@ -754,12 +754,12 @@ ul.right_icon li img {
      }
 
      .news_text p {
-          color: #141414;
-          font-size: 15px;
-          line-height: 32px;
+          color: black;
+          font-size: 12px;
+          line-height: 25px;
           font-weight: 400;
           padding-top: 0px;
-          margin-top: 5px;
+          margin-top: 10px;
      }
 
      .news_text_promo {
@@ -1899,7 +1899,7 @@ ul.right_icon li img {
 }
 
 .marmut-detail {
-     margin-top: 50px;
+     margin-top: 100px;
 }
 
 
@@ -1907,6 +1907,7 @@ ul.right_icon li img {
 @media (max-width: 768px) {
      .marmut-detail {
           padding-top: 0px;
+          margin-top:40px;
      }
 }
 
@@ -1970,18 +1971,20 @@ ul.right_icon li img {
 }
 
 .ongkir {
-     margin-top: 100px !important;
+     margin-top: 100px;
 }
 
 /* Media query untuk layar dengan lebar lebih dari 768px (desktop) */
 @media (max-width: 768px) {
      .originalPrice {
-          margin-top: 5px;
-          font-size: 2rem;
+          margin-top: 0px;
+          font-size: 1.4rem;
+          margin-top: 4px;
      }
 
      .ongkir {
-          padding-top: 40px;
+          padding-top: 0px;
+          margin-top: 40px;
      }
 }
 
@@ -1991,7 +1994,22 @@ ul.right_icon li img {
 }
 
 .form-ongkir {
-     padding: 0px 40px;
+     padding-right: 30px;
+     padding-left: 30px;
+}
+
+@media screen and (max-width: 768px){
+     .form-ongkir {
+          padding-right: 25px;
+          padding-left: 10px;
+          margin-left: 0px;
+          margin-top: 0px;
+     }
+
+     .form-column{
+          padding-right: 0px;
+          padding-left: 0px;
+     }
 }
 
 .exception {
@@ -2017,7 +2035,12 @@ ul.right_icon li img {
 /* Media query untuk layar dengan lebar lebih dari 768px (desktop) */
 @media (max-width: 768px) {
      .paket {
-          padding-top: 40px;
+          padding-top: 0px;
+          margin-top: 40px;
+     }
+
+     .container-paket{
+          padding-right: 30px;
      }
 }
 
@@ -2089,13 +2112,34 @@ ul.right_icon li img {
      }
 }
 
-.card-buyer-information{
+.card-buyer-information {
      width: 18rem;
 }
 
-@media screen and (max-width: 768px){
-     .card-buyer-information{
+@media screen and (max-width: 768px) {
+     .card-buyer-information {
           width: 100%;
      }
 }
 
+.marmut-title {
+     color: black !important;
+     font-size: 1.28571rem;
+     font-weight: 600;
+}
+
+.marmut-categories-detail-buy{
+     margin-top: 5px;
+     font-size: 1rem;
+}
+
+@media screen and (max-width: 768px){
+     .marmut-title {
+          font-size: 1rem;
+     }
+     
+     .marmut-categories-detail-buy{
+          font-size: 0.8rem;
+          margin-top: 4px;
+     }
+}

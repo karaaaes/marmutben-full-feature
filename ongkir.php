@@ -13,8 +13,9 @@
                   <h3>Cek Ongkir Kamu</h3>
                </div>
             </div>
-            <div class="row form-ongkir">
-               <div class="col-md-12 mt-3">
+         </div>
+         <div class="row form-ongkir">
+               <div class="form-column col-md-12 mt-3">
                   <div class="form-group">
                      <label class="label-ongkir" for="wilayahSelect">Wilayah</label>
                      <select class="form-control form-control-sm" id="wilayahSelect" name="wilayah">
@@ -30,7 +31,7 @@
                      </select>
                   </div>
                </div>
-               <div class="col-md-12">
+               <div class="form-column col-md-12">
                   <div class="form-group">
                      <label class="label-ongkir" for="wilayahKecil" id="wilayahKecilLabel">Wilayah Kecil</label>
                      <select class="form-control form-control-sm" id="wilayahKecilSelect" name="wilayahKecil">
@@ -38,28 +39,28 @@
                      </select>
                   </div>
                </div>
-               <div class="col-md-6">
+               <div class="form-column col-md-6">
                   <div class="form-group">
                      <label class="label-ongkir" for="ongkirCOD">Ongkir COD</label>
                      <input type="text" class="form-control form-control-sm" id="ongkirCOD" name="ongkirCOD"
                         aria-describedby="emailHelp" readonly />
                   </div>
                </div>
-               <div class="col-md-6">
+               <div class="form-column col-md-6">
                   <div class="form-group">
                      <label class="label-ongkir" for="ongkirOjol">Ongkir Ojek Online</label>
                      <input type="text" class="form-control form-control-sm" id="ongkirOjol" name="ongkirOjol"
                         aria-describedby="emailHelp" readonly />
                   </div>
                </div>
-               <div class="col-md-12">
+               <div class="form-column col-md-12">
                   <div class="form-group">
                      <label class="label-ongkir" for="ongkirKaLogistik">Ongkir KA Logistik</label>
                      <input type="text" class="form-control form-control-sm" id="ongkirKaLogistik"
                         name="ongkirKaLogistik" aria-describedby="emailHelp" readonly />
                   </div>
                </div>
-               <div class="col-md-12">
+               <div class="form-column col-md-12">
                   <div class="form-group">
                      <div class="exception">Daerah mu tidak ada di list ? <br />
                         Hubungi Admin <a
@@ -69,8 +70,6 @@
                   </div>
                </div>
             </div>
-
-         </div>
          <hr class="mt-3" />
          <!-- end six_box section -->
          <a href="https://api.whatsapp.com/send?phone=6287780605997"><img src="images/whatsapp.webp" id="whatsapp"

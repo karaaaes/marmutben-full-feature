@@ -6,7 +6,7 @@
 <section class="paket">
    <div id="project" class="project">
       <!-- Detail Beli Section -->
-      <div class="container" id="anakanSection">
+      <div class="container container-paket" id="anakanSection">
          <div class="row">
             <div class="col-md-12">
                <div class="titlepage">

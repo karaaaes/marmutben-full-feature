@@ -63,9 +63,10 @@
                <!-- Description Content Section -->
                <div class="col-md-5 content-detailing">
                   <div class="news_text news_text_marmut_detail mb-3">
-                     <h1 style="color:black !important; font-size: 1.28571rem; font-weight: 600;">
-                        <?php echo $dataDetailMarmut[0]['jenis_marmut']; ?></h1>
-                     <span><?php echo "Marmut " . $dataDetailMarmut[0]['categories']; ?></span>
+                     <h1 class="marmut-title"><?php echo $dataDetailMarmut[0]['jenis_marmut']; ?></h1>
+                     <div class="marmut-categories-detail-buy">
+                        <img src="images/guinea-pig.png" alt="kategori marmut" style="margin-right: 5px;"><?php echo "Marmut " . $dataDetailMarmut[0]['categories']; ?>
+                     </div>
                      <h1 style="margin-top: 0px !important; color: black !important; font-weight: 700;">
                         <div class="originalPrice" id="originalPrice">
                            <?php
@@ -120,19 +121,19 @@
                               Nama Pembeli
                            </label>
                            <input type="text" class="form-control form-control-sm" name="receiver_name"
-                              placeholder="Nama Pembeli">
+                              placeholder="Nama Pembeli" required>
                            <label class="label-form form-label mt-2" for="receiver_phone"
                               style="margin-bottom:0px !important;">
                               Nomor Whatsapp
                            </label>
                            <input type="text" class="form-control form-control-sm" name="receiver_phone"
-                              placeholder="Nomor Whatsapp">
+                              placeholder="Nomor Whatsapp" required>
                            <label class="label-form form-label mt-2" for="receiver_location"
                               style="margin-bottom:0px !important;">
                               Lokasi Pembeli
                            </label>
                            <input type="text" class="form-control form-control-sm" name="receiver_location"
-                              placeholder="Lokasi Pembeli">
+                              placeholder="Lokasi Pembeli" required>
                            <div class="stock-selector mt-3 mb-2 justify-content-center">
                               <btn class="stock-button minus-button mr-3">-</btn>
                               <input type="text" name="nama_marmut"

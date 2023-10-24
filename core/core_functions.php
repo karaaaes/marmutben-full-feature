@@ -19,15 +19,17 @@ if (isset($_POST['submitBuy'])) {
     $marmutHarga = $_POST['harga_marmut'];
     $marmutCategories = $_POST['kategori_marmut'];
     $emailNotifications = $_POST['email_notifications'];
+    $receiverName = $_POST['receiver_name'];
+    $receiverPhone = $_POST['receiver_phone'];
+    $receiverLocation = $_POST['receiver_location'];
 
     // Buat pesan email
     $emailMessage = "Halo,\n\n";
-    $emailMessage .= "Saya ingin membeli $marmutName $marmutCategories sebanyak $marmutJumlah pcs dan mendapatkan harga Rp. $marmutHarga. Harga tersebut belum termasuk ongkir.\n\n";
+    $emailMessage .= "Nama saya $receiverName ingin membeli $marmutName $marmutCategories sebanyak $marmutJumlah pcs dan mendapatkan harga Rp. $marmutHarga.\nHarga tersebut belum termasuk ongkir.\n\nHubungi saya di \nWhatsapp : $receiverPhone \nLokasi : $receiverLocation";
     $emailMessage .= "Terima kasih.";
 
     // Konfigurasi PHPMailer
     $mail = new PHPMailer();
-
         // Konfigurasi SMTP
         $mail->isSMTP();
         $mail->Host = 'mail.rakaeshardiansyah.my.id'; // Sesuaikan dengan SMTP Server Anda
@@ -51,7 +53,7 @@ if (isset($_POST['submitBuy'])) {
         }
 
     // Lakukan redirect ke URL WhatsApp
-    $text = "text=Halo%2C%20saya%20ingin%20membeli%20$marmutName%20dengan%20jumlah%20$marmutJumlah%20pcs%20dan%20mendapatkan%20harga%20Rp.%20$marmutHarga.%20Harga%20tersebut%20belum%20termasuk%20ongkir.";
+    $text = "text=Halo%2C%20nama%20saya%20$receiverName%20ingin%20membeli%20$marmutName%20$marmutCategories%20dengan%20jumlah%20$marmutJumlah%20pcs%20dan%20mendapatkan%20harga%20Rp%20$marmutHarga.%20Harga%20tersebut%20belum%20termasuk%20ongkir.%0A%0AHubungi saya%0AWhatsapp%20:%20$receiverPhone%0ALokasi%20:%20$receiverLocation";
     $url = "https://api.whatsapp.com/send?phone=6287780605997&$text";
 
     header("Location: $url");
