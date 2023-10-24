@@ -523,6 +523,7 @@ ul.right_icon li img {
      color: black;
      font-size: 17px;
      font-weight: 500;
+     
 }
 
 .post-title {
@@ -572,10 +573,15 @@ ul.right_icon li img {
 }
 
 .blodark {
-     color: black;
+     color: white !important;
      font-family: 'Poppins';
      font-weight: 600;
      font-size: 60px;
+     text-shadow:
+3px -1px 0 black,  /* Shadow atas-kiri (hitam) */
+    1px -1px 0 black,   /* Shadow atas-kanan (hitam) */
+    -1px 1px 0 black,   /* Shadow bawah-kiri (hitam) */
+    1px 1px 0 black;    /* Shadow bawah-kanan (hitam) */
 }
 
 .text-bg {

@@ -18,7 +18,7 @@ include('core/core_functions.php');
                <div class="pre-title">
                   Dapatkan marmut termurah hanya di
                </div>
-               <h1 style="color: black !important;"> <span class="blodark"> MARMUTBEN</span>
+               <h1> <span class="blodark"> MARMUTBEN</span>
                </h1>
                <div class="post-title">
                   Tempat jual dan beli marmut terpercaya!
