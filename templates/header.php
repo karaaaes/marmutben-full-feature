@@ -9,7 +9,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>MARMUTBEN | Jual Beli Marmut Terpercaya</title>
+   <title>MARMUTBEN | Jual beli Marmut murah terpercaya</title>
    <meta name="keywords" content="marmut murah, jual marmut 2023, marmut terdekat, marmutben">
    <meta name="description" content="Jual Beli Marmut Terpercaya - Bekasi">
    <meta name="author" content="Marmutben">
@@ -35,20 +35,15 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
    <style>
       .btn-primary:hover {
-         background-color: #ffc107 !important;
-         border-color: #ffc107 !important;
+         background-color: #9EB384 !important;
+         border-color: #9EB384 !important;
+         color: white !important;
       }
    </style>
 </head>
 <!-- body -->
 
 <body class="main-layout">
-   <!-- loader  -->
-   <!-- <div class="loader_bg">
-            <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-         </div> -->
-   <!-- end loader -->
-   <!-- header -->
    <?php
 function getBaseUrl() {
    // Check if the server is localhost
@@ -81,7 +76,7 @@ function getBaseUrl() {
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                            data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
                            aria-label="Toggle navigation">
-                           <span class="navbar-toggler-icon mt-3"></span>
+                           <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">

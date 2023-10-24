@@ -1,34 +1,46 @@
-
 .stock-selector {
-    display: flex;
-    align-items: center;
- }
+   /* display: flex; */
+   align-items: center;
+}
 
- .stock-input {
-    width: 50px;
-    text-align: center;
- }
+.stock-input {
+   width: 50px;
+   text-align: center;
+}
 
- .stock-button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
- }
- .zoom-effect {
- position: relative;
- overflow: hidden;
- transition: transform 0.3s ease-in-out;
+.stock-button {
+   padding: 5px 10px;
+   background-color: #435334;
+   color: white;
+   border: none;
+   cursor: pointer;
+   margin-right: 0px !important;
+   margin-left: 0px !important;
+}
+
+.zoom-effect {
+   position: relative;
+   overflow: hidden;
+   transition: transform 0.3s ease-in-out;
 }
 
 .zoom-effect img {
- display: block;
- width: 100%;
- height: auto;
+   display: block;
+   width: 100%;
+   height: auto;
 }
 
 .zoom-effect:hover {
- transform: scale(1.1);
- z-index: 1;
+   transform: scale(1.1);
+   z-index: 1;
 }
+
+.description-stock{
+   font-size: 10px;
+}
+
+.label-form{
+   color: black;
+   font-size: 13px;
+}
+

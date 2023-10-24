@@ -13,7 +13,7 @@
    $dataCategories = checkCategories($categoriesId);
    $categoriesName = $dataCategories[0]['categories'];
    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-   $itemsPerPage = 6; // Jumlah item per halaman
+   $itemsPerPage = 12; // Jumlah item per halaman
 
    // Fungsi untuk mengambil total jumlah item
    $totalItems = getTotalItems($categoriesId);
@@ -26,73 +26,115 @@
 
 ?>
 <style>
-   .pagination {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-   }
-
-   .pagination a {
-      padding: 10px 15px;
-      border: 1px solid #ddd;
-      margin: 0 5px;
-      text-decoration: none;
-      color: #333;
-      transition: background-color 0.3s;
-   }
-
-   .pagination a.active {
-      background-color: #183661;
-      color: white;
-      border-color: #183661;
-   }
-
-   .pagination a:hover {
-      background-color: #f4f4f4;
-      border-color: black;
-      color: black;
-   }
-
-   .whatsapp {
-      display: none;
-      position: fixed;
-      bottom: 10px;
-      /* Mengatur jarak dari bawah ke 20px */
-      left: 20px;
-      /* Mengatur jarak dari kiri ke 20px */
-      z-index: 99;
-      cursor: pointer;
-      padding: 10px;
-      color: #fff;
-      border: none;
-      height: 70px;
-      width: 70px;
-   }
-
-   .kategori_detail {
-      padding-top: 70px;
-   }
-
-   /* Media query untuk layar dengan lebar lebih dari 768px (desktop) */
-   @media (min-width: 768px) {
-      .kategori_detail {
-         margin-top: 80px;
-      }
-   }
 </style>
 <section class="kategori_detail">
    <div id="project" class="project">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h3>Kategori</h3>
+               </div>
+            </div>
+         </div>
+         <div class="menu">
+            <div class="kategori-item">
+               <a href="kategori-detail.php?categories=1">
+                  <div class="news_item">
+                     <div class="news_img_kategori">
+                        <figure><img src="images/icon-little-marmut-new.png"
+                              alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                        </figure>
+                     </div>
+                     <div class="news_text mb-3">
+                        <div class="title-kategori">Anakan</div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <div class="kategori-item">
+               <a href="kategori-detail.php?categories=2">
+                  <div class="news_item">
+                     <div class="news_img_kategori">
+                        <figure><img src="images/icon-little-marmut3.png"
+                              alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                        </figure>
+                     </div>
+                     <div class="news_text mb-3">
+                        <div class="title-kategori">Remaja</div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <div class="kategori-item">
+               <a href="kategori-detail.php?categories=3">
+                  <div class="news_item">
+                     <div class="news_img_kategori">
+                        <figure><img src="images/icon-little-marmut-new1.png"
+                              alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                        </figure>
+                     </div>
+                     <div class="news_text mb-3">
+                        <div class="title-kategori">Indukan</div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <div class="kategori-item">
+               <a href="kategori-detail.php?categories=4">
+                  <div class="news_item">
+                     <div class="news_img_kategori">
+                        <figure><img src="images/icon-little-marmut4.png"
+                              alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                        </figure>
+                     </div>
+                     <div class="news_text mb-3">
+                        <div class="title-kategori">Bunting</div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <div class="kategori-item">
+               <a href="kategori-detail.php?categories=5">
+                  <div class="news_item">
+                     <div class="news_img_kategori">
+                        <figure><img src="images/icon-little-marmut5.png"
+                              alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                        </figure>
+                     </div>
+                     <div class="news_text mb-3">
+                        <div class="title-kategori">Indukan Hias</div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <div class="kategori-item">
+               <a href="kategori-detail.php?categories=6">
+                  <div class="news_item">
+                     <div class="news_img_kategori">
+                        <figure><img src="images/icon-little-marmut6.png"
+                              alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                        </figure>
+                     </div>
+                     <div class="news_text mb-3">
+                        <div class="title-kategori">Bunting Hias</div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
       <!-- Anakan section -->
       <div class="container" id="anakanSection">
          <div class="row">
             <div class="col-md-12">
                <div class="titlepage">
-                  <h2>Marmut <?= $categoriesName; ?></h2>
+                  <h3>Marmut <?= $categoriesName; ?></h3>
                </div>
             </div>
          </div>
 
-         <div class="row">
+         <div class="row mt-3" style="padding-left:15px; padding-right:15px;">
             <?php 
                // Mengambil data produk untuk halaman saat ini
                $dataMarmutanakan = getKategoriMarmutDetail($categoriesId, $itemsPerPage, $offset);
@@ -100,22 +142,29 @@
                   foreach ($dataMarmutanakan as $marmutAnakan) {
                      $finalPrice = number_format($marmutAnakan['harga'], 0, '.', '.');
             ?>
-            <div class="col-md-4 marmut-card">
-               <a
-                  href="marmut-detail.php?id=<?php echo $marmutAnakan['id']?>&categories=<?php echo $marmutAnakan['categories_marmut']?>">
-                  <div class="news_img_best">
-                     <figure><img src="<?php echo $marmutAnakan['image_marmut'] ?>"></figure>
-                  </div>
-                  <div class="news_text mb-3 text-center">
-                     <h3><?php echo $marmutAnakan['jenis_marmut'] ?></h3>
-                     <span>Rp. <?php echo $finalPrice; ?></span><br />
-                     <span><?php echo $marmutAnakan['categories'] ?></span>
-                  </div>
-                  <div class="col-md-12 text-center">
-                     <btn class="btn btn-primary w-100" style="background-color: #183661;border-color: #183661;">Beli
-                     </btn>
-                  </div>
-               </a>
+            <div class="col-6 col-md-2 mb-3" style="padding-right: 0px; padding-left: 0px;">
+               <div class="menu-item menu-item-detail">
+                  <a
+                     href="marmut-detail.php?id=<?php echo $marmutAnakan['id']?>&categories=<?php echo $marmutAnakan['categories_marmut']?>">
+                     <div class="news_item">
+                        <div class="news_img_best news_img_best_category">
+                           <figure><img src="<?php echo $marmutAnakan['image_marmut'] ?>"></figure>
+                        </div>
+
+                        <div class="news_text mb-2">
+                           <div class="title-marmut"><?php echo $marmutAnakan['jenis_marmut'] ?></div>
+                           <div class="price">Rp. <?php echo $finalPrice; ?></div>
+                           <div class="categories"><img src="images/guinea-pig.png" alt="Marmut Lucu"
+                                 style="margin-right:6px;"><?php echo $marmutAnakan['categories'] ?></div>
+                        </div>
+                        <div class="col-md-12 text-center mb-2">
+                           <btn class="btn btn-primary w-100 buy-btn" style="padding:0.375rem 0.7rem !important;">
+                              Beli
+                           </btn>
+                        </div>
+                     </div>
+                  </a>
+               </div>
             </div>
             <?php 
                }
@@ -136,16 +185,21 @@
                <!-- End Pagination -->
             </div>
             <?php 
+            }else{
+            ?>
+            <div class="col-12 col-md-12" style="padding-right: 0px; padding-left: 0px; display:flex; text-align: center; justify-content: center;">
+               Data tidak Ditemukan
+            </div>
+            <?php
             }
-         ?>
+            ?>
          </div>
       </div>
-      <hr class="mt-5" />
    </div>
    <!-- End Anakan Section -->
 
    <!-- fashion section -->
-   <div class="fashion mt-5">
+   <div class="fashion mt-3 mb-3">
       <img src="images/big-banner.jpg" alt="#" />
    </div>
    <!-- end fashion section -->

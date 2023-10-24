@@ -9,117 +9,6 @@
 include('templates/header.php');
 include('core/core_functions.php');
 ?>
-<style>
-   /* Default padding untuk mobile */
-   .banner_main {
-      padding-top: 100px;
-   }
-
-   /* Media query untuk layar dengan lebar lebih dari 768px (desktop) */
-   @media (min-width: 768px) {
-      .banner_main {
-         margin-top: 80px;
-      }
-   }
-
-   .whatsapp {
-      display: none;
-      position: fixed;
-      bottom: 10px;
-      /* Mengatur jarak dari bawah ke 20px */
-      left: 20px;
-      /* Mengatur jarak dari kiri ke 20px */
-      z-index: 99;
-      cursor: pointer;
-      padding: 10px;
-      color: #fff;
-      border: none;
-      height: 70px;
-      width: 70px;
-   }
-
-   .menu-container {
-      width: 100%;
-      overflow: hidden;
-   }
-
-   .menu {
-      margin-top: 10px;
-      display: flex;
-      overflow-x: scroll;
-      padding: 10px;
-      gap: 10px;
-      white-space: nowrap;
-   }
-
-   .menu-item {
-      padding: 17px 20px;
-      width: 200px;
-      height: 100%;
-      background-color: #f0f0f0;
-      /* border-radius: 20px; */
-      display: inline-block;
-      text-decoration: none;
-      color: #333;
-      text-overflow: ellipsis;
-   }
-
-   .menu-item:hover {
-      background-color: #e0e0e0;
-   }
-
-   @media screen and (min-width: 768px) {
-      .menu-container {
-      width: 100%;
-      /* overflow: hidden; */
-   }
-
-   .menu {
-      margin-top: 10px;
-      display: flex;
-      /* overflow-x: scroll; */
-      padding: 10px;
-      gap: 10px;
-      white-space: nowrap;
-   }
-
-   .menu-item {
-      padding: 17px 20px;
-      width: 200px;
-      height: 100%;
-      background-color: #f0f0f0;
-      /* border-radius: 20px; */
-      display: inline-block;
-      text-decoration: none;
-      color: #333;
-      text-overflow: ellipsis;
-   }
-
-      .menu-item {
-         padding: 17px 20px;
-         width: 265px;
-         height: 100%;
-         background-color: #f0f0f0;
-         /* border-radius: 20px; */
-         display: inline-block;
-         text-decoration: none;
-         color: #333;
-         text-overflow: ellipsis;
-      }
-   }
-
-   .pre-title{
-      color: black;
-      font-size: 20px;
-   }
-
-   .post-title{
-      color: black;
-      font-size: 18px;
-   }
-</style>
-
-
 <!-- banner -->
 <section class="banner_main">
    <div class="container">
@@ -146,64 +35,112 @@ include('core/core_functions.php');
    </div>
 </section>
 <!-- end banner -->
-<!-- six_box section -->
-<div class="six_box">
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-md-2 col-sm-4 pa_left">
-            <div class="six_probpx yellow_bg">
-               <i><img src="images/icon-little-marmut3.png" alt="marmut murah anakan" /></i>
-               <span>Anakan</span><br />
-               <span>Rp. 40k - 60k</span>
-            </div>
-         </div>
-         </a>
-         <div class="col-md-2 col-sm-4 pa_left">
-            <div class="six_probpx bluedark_bg">
-               <i><img src="images/icon-little-marmut.png" alt="marmut murah remaja" /></i>
-               <span>Remaja</span><br />
-               <span>Rp. 40k - 60k</span>
-            </div>
-         </div>
-         <div class="col-md-2 col-sm-4 pa_left">
-            <div class="six_probpx yellow_bg">
-               <i><img src="images/icon-little-marmut2.png" alt="marmut murah indukan" /></i>
-               <span>Indukan</span><br />
-               <span>Rp. 40k - 60k</span>
-            </div>
-         </div>
-         <div class="col-md-2 col-sm-4 pa_left">
-            <div class="six_probpx bluedark_bg">
-               <i><img src="images/icon-little-marmut4.png" alt="marmut murah bunting" /></i>
-               <span>Bunting</span><br />
-               <span>Rp. 40k - 60k</span>
-            </div>
-         </div>
-         <div class="col-md-2 col-sm-4 pa_left">
-            <div class="six_probpx yellow_bg">
-               <i><img src="images/icon-little-marmut5.png" alt="marmut murah indukan hias" /></i>
-               <span>Indukan H</span><br />
-               <span>Rp. 40k - 60k</span>
-            </div>
-         </div>
-         <div class="col-md-2 col-sm-4 pa_left">
-            <div class="six_probpx bluedark_bg">
-               <i><img src="images/icon-little-marmut6.png" alt="marmut murah hias" /></i>
-               <span>Bunting H</span><br />
-               <span>Rp. 40k - 60k</span>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- end six_box section -->
 
 <!-- end six_box section -->
 <a href="https://api.whatsapp.com/send?phone=6287780605997"><img src="images/whatsapp.webp" id="whatsapp"
       class="whatsapp" alt="nomor whatsapp marmutben marmut murah"></a>
 
-<!-- project section -->
+
+<div class="container mt-3">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="titlepage">
+            <h3>Kategori Populer</h3>
+         </div>
+      </div>
+   </div>
+
+   <div class="menu-container">
+      <div class="menu">
+         <div class="kategori-item">
+            <a href="kategori-detail.php?categories=1">
+               <div class="news_item">
+                  <div class="news_img_kategori">
+                     <figure><img src="images/icon-little-marmut-new.png"
+                           alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                     </figure>
+                  </div>
+                  <div class="news_text mb-3">
+                     <div class="title-kategori">Anakan</div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="kategori-item">
+            <a href="kategori-detail.php?categories=2">
+               <div class="news_item">
+                  <div class="news_img_kategori">
+                     <figure><img src="images/icon-little-marmut3.png"
+                           alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                     </figure>
+                  </div>
+                  <div class="news_text mb-3">
+                     <div class="title-kategori">Remaja</div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="kategori-item">
+            <a href="kategori-detail.php?categories=3">
+               <div class="news_item">
+                  <div class="news_img_kategori">
+                     <figure><img src="images/icon-little-marmut-new1.png"
+                           alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                     </figure>
+                  </div>
+                  <div class="news_text mb-3">
+                     <div class="title-kategori">Indukan</div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="kategori-item">
+            <a href="kategori-detail.php?categories=4">
+               <div class="news_item">
+                  <div class="news_img_kategori">
+                     <figure><img src="images/icon-little-marmut4.png"
+                           alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                     </figure>
+                  </div>
+                  <div class="news_text mb-3">
+                     <div class="title-kategori">Bunting</div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="kategori-item">
+            <a href="kategori-detail.php?categories=5">
+               <div class="news_item">
+                  <div class="news_img_kategori">
+                     <figure><img src="images/icon-little-marmut5.png"
+                           alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                     </figure>
+                  </div>
+                  <div class="news_text mb-3">
+                     <div class="title-kategori">Indukan Hias</div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="kategori-item">
+            <a href="kategori-detail.php?categories=6">
+               <div class="news_item">
+                  <div class="news_img_kategori">
+                     <figure><img src="images/icon-little-marmut6.png"
+                           alt="display marmut murah meriah 2023. marmutben, tempat jual beli marmut termurah !">
+                     </figure>
+                  </div>
+                  <div class="news_text mb-3">
+                     <div class="title-kategori">Bunting Hias</div>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
 <div id="project" class="project">
+   <!-- project section -->
    <div class="container">
       <div class="row">
          <div class="col-md-12">
@@ -218,8 +155,8 @@ include('core/core_functions.php');
             <?php
                $dataBestSellerMarmut = getMarmutBestSeller();
                foreach ($dataBestSellerMarmut as $marmut) {
-               $finalPrice = number_format($marmut['harga'], 0, '.', '.');
-               ?>
+                  $finalPrice = number_format($marmut['harga'], 0, '.', '.');
+            ?>
             <div class="menu-item">
                <a
                   href="marmut-detail.php?id=<?php echo $marmut['marmut_id']?>&categories=<?php echo $marmut['categories_marmut']?>">
@@ -238,8 +175,8 @@ include('core/core_functions.php');
                         <div class="categories"><img src="images/money.png" alt="marmut terjual"
                               style="margin-right: 6px;"><?php echo $marmut['jumlah_terjual'] . " terjual"; ?></div>
                      </div>
-                     <div class="col-md-12 text-center">
-                        <btn class="btn btn-primary w-100" style="background-color: #1A1C20;border-color: #1A1C20; border-radius: 0px !important;">
+                     <div class="col-md-12 text-center mb-2">
+                        <btn class="btn btn-primary w-100 buy-btn" style="padding:0.375rem 0.7rem !important;">
                            Beli
                         </btn>
                      </div>
@@ -247,8 +184,8 @@ include('core/core_functions.php');
                </a>
             </div>
             <?php
-            }
-         ?>
+}
+?>
          </div>
          <div class="col-md-12">
             <a class="read_more" href="kategori.php">See More</a>
@@ -258,7 +195,7 @@ include('core/core_functions.php');
    <!-- end project section -->
 
    <!-- fashion section -->
-   <div class="fashion mt-5">
+   <div class="fashion">
       <img src="images/big-banner.jpg" alt="banner promo marmut" />
    </div>
    <!-- end fashion section -->

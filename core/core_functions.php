@@ -64,7 +64,7 @@ function getMarmutBestSeller(){
     $sql = "SELECT a.id, a.marmut_id, a.jumlah_terjual, b.jenis_marmut, b.harga, b.categories_marmut, b.image_marmut, c.categories FROM t_marmutben_best_sellers as a
     LEFT JOIN t_marmutben_products as b on a.marmut_id = b.id
     LEFT JOIN t_marmutben_categories as c on b.categories_marmut = c.id
-    ORDER BY a.jumlah_terjual DESC LIMIT 4";
+    ORDER BY a.jumlah_terjual DESC LIMIT 6";
     $result = $conn->query($sql);
     $marmutArray = array();
     if ($result->num_rows > 0) {
@@ -114,7 +114,7 @@ function getKategoriMarmut($categoriesId){
     LEFT JOIN t_marmutben_categories as b on a.categories_marmut = b.id
     WHERE a.categories_marmut = $categoriesId 
     ORDER BY id DESC 
-    LIMIT 3";
+    LIMIT 6";
     $result = $conn->query($sql);
     $marmutArray = array();
     if ($result->num_rows > 0) {

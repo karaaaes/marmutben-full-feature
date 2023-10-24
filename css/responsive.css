@@ -259,15 +259,16 @@
     }
 
     .banner_main {
-        padding: 99px 0px 0px 0px;
-        min-height: 547px;
+        padding: 15px 0px 0px 0px;
+        margin-top: 0px;
+        height: 330px;
+        border-bottom: rgb(229, 231, 233) solid 3px;
     }
 
     .text-bg h1 {
         font-size: 50px;
-        padding-bottom: 20px;
+        /* padding-bottom: 20px; */
         line-height: 66px;
-        px;
     }
 
     .text-bg p {
@@ -285,7 +286,7 @@
     }
 
     .six_box .six_probpx span {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .titlepage h2 {
@@ -314,7 +315,7 @@
 
 
         .title-marmut {
-            font-size: 0.86rem;
+            font-size: 12px;
             text-align: left;
             min-height: 16px;
             font-weight: 450;
@@ -324,6 +325,13 @@
             text-overflow: ellipsis;
             overflow: hidden;
             max-width: 100%;
+            white-space: pre-wrap;
+            word-break: keep-all;
+        }
+
+        .title-marmut img{
+                width: 15px;
+                height: 15px;
         }
 
     .title-marmut:hover {
@@ -336,7 +344,7 @@
     }
 
     .blodark {
-        font-size: 45px;
+        font-size: 40px;
     }
 
     .about_text h3 {
@@ -367,7 +375,7 @@
     }
 
     .navigation .navbar-collapse {
-        background: #183661;
+        background: #1A1C20;
         padding: 20px;
         margin-top: 68px;
         position: absolute;
@@ -404,7 +412,8 @@
     .navigation.navbar-dark .navbar-toggler-icon {
         background: url(../images/menu_icon1.png);
         background-repeat: no-repeat;
-        width: 64px;
-        height: 44px;
+        margin-top: 25px;
+        width: 25px;
+        height: 34px;
     }
 }
