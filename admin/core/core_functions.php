@@ -832,7 +832,8 @@ function getListPromo(){
     global $conn;
     $sql = "
         SELECT * FROM t_marmutben_paket 
-        ORDER BY jenis ASC
+        ORDER BY jenis ASC 
+        LIMIT 6
     ";
     $result = $conn->query($sql);
     $marmutArray = array();
