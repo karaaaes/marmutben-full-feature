@@ -136,6 +136,7 @@ function getKategoriMarmutDetail($categoriesId, $itemsPerPage, $offset) {
     ORDER BY a.id DESC 
     LIMIT $itemsPerPage OFFSET $offset"; // Menambahkan LIMIT dan OFFSET
 
+    
     $result = $conn->query($sql);
     $marmutArray = array();
     if ($result->num_rows > 0) {

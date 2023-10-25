@@ -13,7 +13,7 @@
    $dataCategories = checkCategories($categoriesId);
    $categoriesName = $dataCategories[0]['categories'];
    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-   $itemsPerPage = 12; // Jumlah item per halaman
+   $itemsPerPage = 6; // Jumlah item per halaman
 
    // Fungsi untuk mengambil total jumlah item
    $totalItems = getTotalItems($categoriesId);
